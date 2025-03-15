@@ -9,7 +9,7 @@ categories = ["buffalo", "elephant", "rhino", "zebra"]
 # 输出路径
 output_path = "D:\\Workspace\\Projects\\tyza66\YoloTrainDemo\\datasets\\animal"  # 修改为划分后的输出路径
 train_path = os.path.join(output_path, "train")
-val_path = os.path.join(output_path, "valit")
+val_path = os.path.join(output_path, "valid")
 test_path = os.path.join(output_path, "test")
 
 # 数据划分比例
@@ -53,8 +53,8 @@ test_files = all_files[num_train + num_val:]
 def move_files(file_list, split_path):
     for idx, file_pair in enumerate(file_list):
         # 生成唯一的文件名，例如 "buffalo_001.jpg"
-        image_name = f"{file_pair['category']}_{idx:04d}.jpg"
-        label_name = f"{file_pair['category']}_{idx:04d}.txt"
+        image_name = f"{file_pair['category']}({idx:04d}).jpg"
+        label_name = f"{file_pair['category']}({idx:04d}).txt"
 
         # 移动图片
         shutil.copy(file_pair["image"], os.path.join(split_path, "images", image_name))
