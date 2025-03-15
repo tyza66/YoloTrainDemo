@@ -1,4 +1,4 @@
 from ultralytics import YOLO
 
-model = YOLO("XXX.pt")
-model.predictor("test.jpg",save=True)
+model = YOLO("best.pt")
+model.predict(source="test.jpg",save=True)
